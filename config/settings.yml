@@ -1,0 +1,8 @@
+plugins:
+  force_moderation_enabled:
+    default: false
+    client: false
+  force_moderation_users:
+    default: ""
+    client: false
+    type: list

@@ -1,0 +1,4 @@
+en:
+  site_settings:
+    force_moderation_enabled: "Enable forcing posts by certain usernames through moderation?"
+    force_moderation_users: "List of usernames whose posts always go through moderation."
