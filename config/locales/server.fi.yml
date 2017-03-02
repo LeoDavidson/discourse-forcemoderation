@@ -1,0 +1,4 @@
+fi:
+  site_settings:
+    force_moderation_enabled: "Ota käyttöön tiettyjen käyttäjien viestien ennakkomoderointi?"
+    force_moderation_users: "Lista käyttäjistä, joiden viestit valvoja tarkastaa aina ennalta."
