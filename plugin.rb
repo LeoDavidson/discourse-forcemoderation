@@ -1,6 +1,6 @@
 # name: discourse-forcemoderation
 # about: Force posts from specified usernames to go through moderation.
-# version: 0.2
+# version: 0.3
 # authors: Leo Davidson
 # url: https://github.com/leodavidson/discourse-forcemoderation
 
@@ -11,15 +11,15 @@ after_initialize do
   module ::DiscourseForceModeration
     def post_needs_approval?(manager)
       superResult = super
-      return superResult if ((!(SiteSetting.force_moderation_enabled)) || superResult)
+      return superResult if ((!(SiteSetting.force_moderation_enabled)) || (superResult != :skip))
 
       if SiteSetting.force_moderation_users.is_a? String
         userName = manager.user.username.downcase
         userArray = SiteSetting.force_moderation_users.downcase.split("|")
-        return true if (userArray.include? userName)
+        return :trust_level if (userArray.include? userName)
       end
 
-      return false
+      return :skip
     end
   end
 
